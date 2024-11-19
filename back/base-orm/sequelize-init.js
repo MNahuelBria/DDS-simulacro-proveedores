@@ -5,7 +5,7 @@ import { Sequelize, DataTypes } from "sequelize";
 const sequelize = new Sequelize("sqlite:" + "../back/.data/proveedores.db");
 
 // definicion del modelo de proveedores
-const Proveedores = sequelize.define('proveedores', {
+const Proveedor = sequelize.define('proveedores', {
   IdProveedor: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -32,10 +32,6 @@ const Proveedores = sequelize.define('proveedores', {
       notNull: {
         args: true,
         msg: "Fecha de alta es requerida",
-      },
-      max: {
-        args: "2022-01-01",
-        msg: "Fecha de alta debe ser menor a 2022-01-01",
       }
     }
   },
@@ -70,5 +66,5 @@ const Proveedores = sequelize.define('proveedores', {
 
 export {
   sequelize,
-  Proveedores
+  Proveedor
 };

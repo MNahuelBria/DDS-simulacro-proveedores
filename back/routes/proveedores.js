@@ -1,6 +1,6 @@
 // importacion de librerias
 import express from 'express';
-import { Proveedores } from '../base-orm/sequelize-init.js';
+import { Proveedor } from '../base-orm/sequelize-init.js';
 import { ValidationError } from 'sequelize';
 
 
@@ -8,9 +8,9 @@ import { ValidationError } from 'sequelize';
 const router = express.Router();
 
 // Obtener todos los Proveedores
-router.get('/api/proveedores', async (req, res) => {
+router.get('/proveedores', async (req, res) => {
   try {
-    const { cantidad, proveedor } = await Proveedores.findAndCountAll({
+    const proveedores = await Proveedor.findAll({
         attributes: [
           "IdProveedor",
           "RazonSocial",
@@ -20,14 +20,14 @@ router.get('/api/proveedores', async (req, res) => {
         order: [["RazonSocial", "ASC"]],
       });
     
-      return res.json({ proveedores: proveedor, cantidadRegistrosTotales: cantidad });  
+      return res.json(proveedores);  
     } catch (error) {
       res.status(500).json({ error: 'Error al obtener los Proveedores' });
   }
 });
 
 // cargar un nuevo proveedor en la base de datos
-router.post('/api/proveedores', async (req, res) => {
+router.post('/proveedores', async (req, res) => {
   try {
 
     // parametros a pasar en el body
@@ -38,7 +38,7 @@ router.post('/api/proveedores', async (req, res) => {
       return res.status(400).json({ message: 'Todos los campos son requeridos.' });
       }
 
-    const nuevoProveedor = await Proveedores.create(
+    const nuevoProveedor = await Proveedor.create(
       {
         RazonSocial,
         Telefono,

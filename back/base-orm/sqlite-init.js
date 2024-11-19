@@ -1,57 +1,57 @@
 // acceder al ORM que cree en sequelize-init.js
-import { sequelize, Proveedores } from "./sequelize-init.js";
+import { sequelize, Proveedor } from "./sequelize-init.js";
 
 // crear array de datos de proveedores
 const proveedoresData = [
   {
-    RazónSocial: "Suministros Rápidos S.A.",
-    Telefono: 153123456,
+    RazonSocial: "Suministros Rápidos S.A.",
     FechaAlta: "2023-01-15",
+    Telefono: 153123456
   },
   {
-    RazónSocial: "Tecnología Avanzada Ltda.",
-    Telefono: 156234567,
+    RazonSocial: "Tecnología Avanzada Ltda.",
     FechaAlta: "2023-02-20",
+    Telefono: 156234567
   },
   {
-    RazónSocial: "Papelería El Lápiz",
-    Telefono: 154345678,
+    RazonSocial: "Papelería El Lápiz",
     FechaAlta: "2023-03-10",
+    Telefono: 154345678,
   },
   {
-    RazónSocial: "Muebles Modernos S.A.",
-    Telefono: 153456789,
+    RazonSocial: "Muebles Modernos S.A.",
     FechaAlta: "2023-04-05",
+    Telefono: 153456789
   },
   {
-    RazónSocial: "Electrónica del Futuro S.A.",
-    Telefono: 156567890,
+    RazonSocial: "Electrónica del Futuro S.A.",
     FechaAlta: "2023-05-22",
+    Telefono: 156567890
   },
   {
-    RazónSocial: "Alimentos Frescos S.R.L.",
-    Telefono: 154678901,
+    RazonSocial: "Alimentos Frescos S.R.L.",
     FechaAlta: "2023-06-30",
+    Telefono: 154678901
   },
   {
-    RazónSocial: "Herramientas Profesionales Inc. S.R.L.",
-    Telefono: 153789012,
+    RazonSocial: "Herramientas Profesionales Inc. S.R.L.",
     FechaAlta: "2023-07-18",
+    Telefono: 153789012
   },
   {
-    RazónSocial: "Textiles del Sur",
-    Telefono: 156890123,
+    RazonSocial: "Textiles del Sur",
     FechaAlta: "2023-08-25",
+    Telefono: 156890123
   },
   {
-    RazónSocial: "Química Industrial S.A.",
-    Telefono: 154901234,
+    RazonSocial: "Química Industrial S.A.",
     FechaAlta: "2023-09-12",
+    Telefono: 154901234
   },
   {
-    RazónSocial: "Transportes Rápidos y Seguros",
-    Telefono: 153012345,
+    RazonSocial: "Transportes Rápidos y Seguros",
     FechaAlta: "2023-10-07",
+    Telefono: 153012345
   }
 ]
 
@@ -85,7 +85,7 @@ const inicializarDB = async () => {
       await crearTablas()
 
       //agregar cada insercion de cada modelo
-      await insertarDatos(Proveedores, proveedoresData),
+      await insertarDatos(Proveedor, proveedoresData),
       
       console.log('La base de datos fue inicializada con exito')
   }

@@ -16,7 +16,7 @@ const ProveedoresRegistro = ({ onRegistroExitoso }) => {
             Telefono: telefono
         }
 
-        axios.post('/api/proveedores', nuevoProveedor)
+        axios.post('http://localhost:4000/api/proveedores', nuevoProveedor)
         .then(response => {
             onRegistroExitoso()
         }).catch(error => {
@@ -43,13 +43,16 @@ const ProveedoresRegistro = ({ onRegistroExitoso }) => {
                     <Form.Control type="text" value={telefono}
                     onChange={(e) => setTelefono(e.target.value)} required/>
                 </Form.Group>
-                <Button variant="primary" type="submit" className="mt-3">
+            </Form>
+            <div className='d-flex justify-content-center'>
+                <Button variant="primary" type="submit" className="mt-3 mx-2">
                     Registrar
                 </Button>
-            </Form>
-            <Button variant="secondary" onClick={onRegistroExitoso} className="mt-3">
+                <Button variant="secondary" onClick={onRegistroExitoso} className="mt-3 mx-2">
                 Volver
-            </Button>
+                </Button>
+            </div>
+            
         </Container>
     )}
 

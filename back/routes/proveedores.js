@@ -8,7 +8,7 @@ import { ValidationError } from 'sequelize';
 const router = express.Router();
 
 // Obtener todos los Proveedores
-router.get('/proveedores', async (req, res) => {
+router.get('/api/proveedores', async (req, res) => {
   try {
     const proveedores = await Proveedor.findAll({
         attributes: [
@@ -27,7 +27,7 @@ router.get('/proveedores', async (req, res) => {
 });
 
 // cargar un nuevo proveedor en la base de datos
-router.post('/proveedores', async (req, res) => {
+router.post('/api/proveedores', async (req, res) => {
   try {
 
     // parametros a pasar en el body
